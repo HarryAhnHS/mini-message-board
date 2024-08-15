@@ -4,7 +4,7 @@ const appController = require('./controllers/appController');
 
 var app = express();
 
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,6 +21,6 @@ app.post('/new', appController.postNewMessage);
 
 app.get('/:id', appController.getMessageById);
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}/ !`);
+app.listen(port, "0.0.0.0", () => {
+    console.log(`Server running on http://localhost:${port}/ !`);
 })
