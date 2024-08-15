@@ -9,13 +9,19 @@ const messages = [
     {
         id: uuidv4(),
         text: "Hi there!",
-        user: "Amando",
+        user: "Harry",
         added: new Date()
     },
     {
         id: uuidv4(),
-        text: "Hello World!",
-        user: "Charles",
+        text: "Add new messages by clicking the button below!",
+        user: "Harry",
+        added: new Date()
+    },
+    {
+        id: uuidv4(),
+        text: "You can also see message details if you click the message",
+        user: "Jo",
         added: new Date()
     }
 ];

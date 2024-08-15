@@ -6,6 +6,7 @@
 }
 
 body {
+    padding-top: 20px;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -43,6 +44,11 @@ h1 {
 
 .message-link {
     text-decoration: none;
+    color: black;
+}
+
+.message-link:visited {
+    color: black;
 }
 
 .message {
