@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+</head>
+<body>
+
+    <div class="message-board">
+        <h1>Message Board</h1>
+
+        <% if (messages.length > 0) { %>
+            <% messages.forEach(function(message) { %>
+                <div class="message">
+                    <div class="message-author"><%= message.user %></div>
+                    <div class="message-content"><%= message.text %></div>
+                    <div class="message-date"><%= message.added.toLocaleString() %></div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No messages yet. Be the first to post!</p>
+        <% } %>
+    </div>
+
+    <% - include('footer'); %>
+</body>
+</html>
