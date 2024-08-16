@@ -5,10 +5,18 @@ if (!process.env.DATABASE_URL) {
   throw new Error("Missing required environment variables");
 }
 
-// All of the following properties should be read from environment variables
-// We're hardcoding them here for simplicity
-// Create a new pool using the connection string from the environment variables
-module.exports = new Pool({
+const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
+
+pool.on('connect', () => {
+    console.log('Database connected successfully');
+});
+  
+pool.on('error', (err) => {
+    console.error('Database connection error:', err);
+});
+
+// Create a new pool using the connection string from the environment variables
+module.exports = pool;
