@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS messages (
   text TEXT,
   username TEXT,
   added TIMESTAMP
-);
+);a
 
 INSERT INTO messages (text, username, added) 
 VALUES
