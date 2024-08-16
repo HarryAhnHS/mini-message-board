@@ -20,7 +20,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: encodeURIComponent(process.env.DATABASE_URL)
+    connectionString: process.env.DATABASE_URL,
   });
   try {
     await client.connect();
