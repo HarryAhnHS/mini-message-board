@@ -20,7 +20,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${encodeURIComponent(process.env.USER)}:${encodeURIComponent(process.env.PASSWORD)}@${process.env.HOST}:${process.env.DBPORT}/${process.env.DATABASE}`
+    connectionString: encodeURIComponent(process.env.DATABASE_URL)
   });
   try {
     await client.connect();
