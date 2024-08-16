@@ -1,40 +1,17 @@
-const { v4: uuidv4 } = require('uuid'); // Import the UUID library
-
-const messages = [
-    {
-        id: uuidv4(),
-        text: "Hi there!",
-        user: "Harry",
-        added: new Date()
-    },
-    {
-        id: uuidv4(),
-        text: "Add new messages by clicking the button below!",
-        user: "Harry",
-        added: new Date()
-    },
-    {
-        id: uuidv4(),
-        text: "You can also see message details if you click the message",
-        user: "Jo",
-        added: new Date()
-    }
-];
+const db = require('../db/queries');
 
 module.exports = {
-    getMessages: (req, res) => res.render('index.ejs', {messages: messages}),
+    getMessages: async (req, res) => {
+        const messages = await db.getAllMessages();
+        res.render('index.ejs', {messages: messages})
+    },
     getForm: (req, res) => res.render('form.ejs'),
-    postNewMessage: (req, res) => {
-        messages.push({
-            id: uuidv4(),
-            text: req.body.text,
-            user: req.body.user,
-            added: new Date(),
-        });
+    postNewMessage: async (req, res) => {
+        await db.postNewMessage(req.body.text, req.body.username);
         res.redirect('/');
     },
-    getMessageById: (req, res) => {
-        const display = messages.find((m) => m.id === req.params.id);
-        res.render("messageDetails", {message: display});
+    getMessageById: async (req, res) => {
+        const result = await db.getMessage(req.params.id);
+        res.render("messageDetails", {message: result});
     }
 }

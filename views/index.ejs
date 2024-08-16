@@ -16,9 +16,9 @@
             <% messages.forEach(function(message) { %>
                 <a href="/<%= message.id %>" class="message-link">
                     <div class="message">
-                        <div class="message-user"><%= message.user %></div>
+                        <div class="message-user"><%= message.username %></div>
                         <div class="message-text"><%= message.text %></div>
-                        <div class="message-added"><%= message.added.toLocaleString() %></div>
+                        <div class="message-added"><%= message.added %></div>
                     </div>
                 </a>
             <% }) %>

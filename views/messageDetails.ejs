@@ -10,9 +10,9 @@
     <div class="message-details-wrapper">
         <h1>Message Details</h1>
         <div class="message-details">
-            <div class="message-details-user"><%= message.user %></div>
-            <div class="message-details-text"><%= message.text %></div>
-            <div class="message-details-added"><%= message.added.toLocaleString() %></div>
+            <div class="message-details-user"><%= message[0].username %></div>
+            <div class="message-details-text"><%= message[0].text %></div>
+            <div class="message-details-added"><%= message[0].added %></div>
         </div>
     </div>
 
