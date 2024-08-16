@@ -1,6 +1,6 @@
 const path = require('path');
 var express = require('express');
-const {usersRouter} = require('./routers/userRouter');
+const {messagesRouter} = require('./routers/messagesRouter');
 
 var app = express();
 
@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use('/', usersRouter);
+app.use('/', messagesRouter);
 
 app.listen(port, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${port}/ !`);
